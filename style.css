@@ -1,0 +1,20 @@
+body {
+  background: #99897a;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+}
+
+.originals,
+.canvas,
+.offscreenCanvas {
+  background: #99897a;
+  padding: 20px;
+}
+
+canvas {
+  width: 144px;
+  height: 144px;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="originals">
+        <h1>Originals</h1>
+        <h2>PNG</h2>
+        <img src="/debug.png" alt="" />
+        <h2>SVG</h2>
+        <img src="/debug.svg" alt="" />
+      </div>
+      <div class="canvas">
+        <h1>Canvas</h1>
+        <h2>PNG</h2>
+        <canvas id="pngCanvas" width="288" height="288"></canvas>
+        <h2>SVG</h2>
+        <canvas id="svgCanvas" width="288" height="288"></canvas>
+      </div>
+      <div class="offscreenCanvas">
+        <h1>OffscreenCanvas</h1>
+        <h2>PNG</h2>
+        <canvas
+          id="offscreenPngCanvas"
+          width="288"
+          height="288"
+          style="width: 144px; height: 144px"
+        ></canvas>
+        <h2>SVG</h2>
+        <canvas
+          id="offscreenSvgCanvas"
+          width="288"
+          height="288"
+          style="width: 144px; height: 144px"
+        ></canvas>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
