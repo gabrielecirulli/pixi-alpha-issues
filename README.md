@@ -1,4 +1,4 @@
 To run:
 * Clone
-* `pnpm init`
+* `pnpm install`
 * `pnpm run dev`
