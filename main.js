@@ -10,6 +10,18 @@ import Worker from './worker.js?worker';
 import './style.css';
 import debugPng from './public/debug.png';
 import debugSvg from './public/debug.svg';
+import { makeApplicationOptions } from './makeApplicationOptions';
+
+// Checkbox
+const checkbox = document.getElementById('useWebgpu');
+const rawUseWebgpu = localStorage.getItem('__useWebgpu');
+const useWebgpu = rawUseWebgpu === null ? false : JSON.parse(rawUseWebgpu);
+checkbox.checked = useWebgpu;
+
+checkbox.addEventListener('change', (event) => {
+  localStorage.setItem('__useWebgpu', JSON.stringify(event.target.checked));
+  window.location.reload();
+});
 
 // Local canvas
 makeLocalPngCanvas();
@@ -36,6 +48,7 @@ worker.postMessage(
     offscreenPngCanvas,
     offscreenSvgCanvas,
     svgImageBitmapForOffscreen,
+    useWebgpu,
   },
   [offscreenPngCanvas, offscreenSvgCanvas, svgImageBitmapForOffscreen]
 );
@@ -44,14 +57,7 @@ async function makeLocalPngCanvas() {
   const canvas = document.getElementById('pngCanvas');
 
   const app = new Application();
-  await app.init({
-    canvas,
-    width: 144,
-    height: 144,
-    preference: 'webgpu',
-    resolution: 2,
-    backgroundAlpha: 0,
-  });
+  await app.init(makeApplicationOptions(canvas, useWebgpu));
 
   const sprite = Sprite.from(await Assets.load(debugPng));
 
@@ -62,16 +68,7 @@ async function makeLocalSvgCanvas() {
   const canvas = document.getElementById('svgCanvas');
 
   const app = new Application();
-  await app.init({
-    canvas,
-    width: 144,
-    height: 144,
-    preference: 'svg',
-    resolution: 2,
-    backgroundAlpha: 0,
-  });
-
-  console.log(debugSvg);
+  await app.init(makeApplicationOptions(canvas, useWebgpu));
 
   const sprite = Sprite.from(await makeTextureFromSvg(debugSvg, 144, 144, 2));
   sprite.scale = 0.5;
@@ -145,10 +142,7 @@ async function makeImageBitmapFromSvg(svgPath, width, height, resolution) {
 }
 
 function getVisuallyHiddenContainer() {
-  console.log(1);
-
   if (!window.visuallyHiddenContainer) {
-    console.log(2);
     window.visuallyHiddenContainer = document.createElement('div');
 
     window.visuallyHiddenContainer.setAttribute('aria-hidden', 'true');
@@ -163,7 +157,6 @@ function getVisuallyHiddenContainer() {
 
     document.body.appendChild(window.visuallyHiddenContainer);
   }
-  console.log(3);
 
   return window.visuallyHiddenContainer;
 }
