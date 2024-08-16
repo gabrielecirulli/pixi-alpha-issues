@@ -6,13 +6,13 @@ settings:
 
 dependencies:
   pixi.js:
-    specifier: ^8.3.2
-    version: 8.3.2
+    specifier: ^8.3.3
+    version: 8.3.3
 
 devDependencies:
   vite:
-    specifier: ^5.4.0
-    version: 5.4.0
+    specifier: ^5.4.1
+    version: 5.4.1
 
 packages:
 
@@ -441,8 +441,8 @@ packages:
     resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
     dev: true
 
-  /pixi.js@8.3.2:
-    resolution: {integrity: sha512-z9/aADIGV8IqCD/pd1WuzNQWAnNG229Uj/EvMrVtJMMGOzGGN5Qr6seMdjzoOJtTQsR+eKu8Ftr5KNFEfCsriw==}
+  /pixi.js@8.3.3:
+    resolution: {integrity: sha512-dpucBKAqEm0K51MQKlXvyIJ40bcxniP82uz4ZPEQejGtPp0P+vueuG5DyArHCkC48mkVE2FEDvyYvBa45/JlQg==}
     dependencies:
       '@pixi/colord': 2.9.6
       '@types/css-font-loading-module': 0.0.12
@@ -495,8 +495,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /vite@5.4.0:
-    resolution: {integrity: sha512-5xokfMX0PIiwCMCMb9ZJcMyh5wbBun0zUzKib+L65vAZ8GY9ePZMXxFrHbr/Kyll2+LSCY7xtERPpxkBDKngwg==}
+  /vite@5.4.1:
+    resolution: {integrity: sha512-1oE6yuNXssjrZdblI9AfBbHCC41nnyoVoEZxQnID6yvQZAFBzxxkqoFLtHUMkYunL8hwOLEjgTuxpkRxvba3kA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
